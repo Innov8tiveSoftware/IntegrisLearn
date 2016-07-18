@@ -1,0 +1,178 @@
+﻿<!-- marquee -->
+@*@Html.Partial("~/Views/Shared/_Marquee.cshtml", new ViewDataDictionary { { "headline", "Pay bills online" }, { "copy", "Set up automatic withdrawals, pay by credit card, check or set up payment arrangements." }, { "btnLabel", "Watch How" }, { "btnUrl", "#" } })*@
+@{
+    ViewBag.SelectedMenu = "features";
+    ViewBag.title = "Features";
+}
+
+<!--copy -->
+<div class="content-block n-p-b">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">Manage your health like never before</h1>
+            <p class="text-center">INTEGRIS &amp; Me is a completely new way to interact with us, as we take care of beautiful, wonderful, unique you. We're putting more power, more information and more customization in your hands than ever before, so you can manage your health care the way only <i>you</i> can.</p>
+        </div>
+    </div>
+</div>
+
+<!-- video -->
+<div class="content-block n-p">
+    <div class="row">
+        <div class="col-xs-20 col-xs-offset-2 col-sm-20 col-sm-offset-2 col-md-15 col-md-offset-4 feature-box-center video-parent features">
+            @Html.Partial("~/Views/Shared/_FeaturesVideoPlayer.cshtml")
+        </div>
+    </div>
+</div>
+
+<div class="content-block n-p-t">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <p class="text-center">
+                This is a quick summary of the suite of tools that will be available to now, but remember, we’ll be rolling out even more features, more capabilities and more personalization. <a href="@Url.Action("GetStarted","Home")">Get started now</a>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-xs-20 col-xs-offset-2 feature-box-center" id="communicate">
+            <div><img src="/images/Communicate.jpg" class="img-responsive" style="width: 100%;" alt="Communicate with your care team" /></div>
+            <div class="feature-together centered">
+                <div class="feature2-icon"><img src="/images/communicate.png" class="img-responsive feature-icon-img" alt="Communicate" /></div>
+                <div class="feature2-copy"><h3> Communicate with your care team</h3></div>
+            </div>
+            <p class="feature3-copy">Questions don't always arise during a clinic visit. Or during clinic hours. And a phone call isn’t always convenient. With INTEGRIS &amp; Me secure messaging, you can send a message directly to your medical team and get a discreet, secure response promptly - usually within two business days.</p>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2" id="manageappts">
+            <div><img src="/images/Manage-your-appointments.jpg" class="img-responsive" style="width: 100%;" alt="Manage appointments" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/Manage.png" class="img-responsive feature-icon-img" alt="Appointments" /></div>
+                <div class="feature2-copy"><h3> Manage appointments</h3></div>
+            </div>
+            <p class="feature3-copy">
+                Managing your medical appointments has never been this easy. You can request dates and times that work best for you and get a response from your clinic within two business days.
+            </p>
+        </div>
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2" id="paybills">
+            <div><img src="/images/Make-A-Payment.jpg" class="img-responsive" style="width: 100%;" alt="Pay bills online" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/Pay-Bills.png" class="img-responsive feature-icon-img" alt="Bills" /></div>
+                <div class="feature2-copy"><h3> Pay bills online</h3></div>
+            </div>
+            <p class="feature3-copy">
+                INTEGRIS & Me online billpay puts the ability to manage and pay all of your INTEGRIS bills in one convenient spot. From there, you can easily set up automatic withdrawals, quickly pay by credit card or set up long-term payment arrangements.
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-xs-20 col-xs-offset-2 feature-box-center" id="medicalrecords">
+            <div><img src="/images/View-Medical.jpg" class="img-responsive" style="width: 100%;" alt="Manage your medical information" /></div>
+            <div class="feature-together centered">
+                <div class="feature2-icon"><img src="/images/View-Medical.png" class="img-responsive feature-icon-img" alt="Information" /></div>
+                <div class="feature2-copy"><h3> Manage your medical information</h3></div>
+            </div>
+            <p class="feature3-copy">
+                You can view and print visit summaries from every appointment you’ve had with INTEGRIS since January 2015. If you need access to your records from December 31, 2014, or earlier, please call 877-778-7211.
+            </p>
+            <p>
+                Soon you’ll also have access to your detailed health information, including test results, health tracking, doctor instructions and your medical history.
+            </p>
+        </div>
+    </div>
+</div>
+
+@*<div class="content-block">
+        <div class="row">
+            <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+                <h1 class="green text-center">There’s more...</h1>
+                <p class="text-center">INTEGRIS & Me is a new era in health care. It's personalized, tailored to your needs, and puts more control in your hands. We'll continue to roll out additional, easy-to-use tools over time, but you can take advantage of the features listed below right now.</p>
+            </div>
+        </div>
+    </div>*@
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-xs-20 col-xs-offset-2 feature-box-center" id="virtualvisits">
+            <div><img src="/images/Video-Chat.jpg" class="img-responsive" style="width: 100%;" alt="INTEGRIS Virtual Visit" /></div>
+            <div class="feature-together centered">
+                <div class="feature2-icon"><img src="/images/Video-Chat.png" class="img-responsive feature-icon-img" alt="Virtual Visit" /></div>
+                <div class="feature2-copy"><h3> INTEGRIS Virtual Visit</h3></div>
+            </div>
+            <p class="feature3-copy">
+                INTEGRIS Virtual Visit brings you board-certified physicians and nurse practitioners via online video chat, anytime, anywhere in Oklahoma. For a flat $39 fee, you’ll receive a diagnosis, advice and even prescriptions if necessary for everything from coughs, colds and headaches to rashes, bites, stings and allergies.
+            </p>
+            <a href="http://www.integrisvirtualvisit.com" class="btn btn-primary feature-link" target="_blank">Visit</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2 feature-box" id="finddoctor">
+            <div><img src="/images/Find-A-Doctor.jpg" class="img-responsive" style="width: 100%;" alt="Find the doctor for you" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/Find-Doctor.png" class="img-responsive feature-icon-img" alt="Find doctors" /></div>
+                <div class="feature2-copy"><h3> Find the doctor for you</h3></div>
+            </div>
+            <p class="feature3-copy">
+                Call 405-552-0345 and we’ll connect you with a representative who will find the best doctor for you based on your needs and desires, or you can browse physicians online now.
+            </p>
+            <a href="http://www.integrisok.com/physicians" class="btn btn-primary feature-link" role="button" target="_blank">Visit</a>
+        </div>
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2 feature-box" id="pharmacy">
+            <div><img src="/images/Mobile.png" class="img-responsive" style="width: 100%;" alt="INTEGRIS Pharmacy" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/Perscription-Icon.png" class="img-responsive feature-icon-img" alt="Pharmacy" /></div>
+                <div class="feature2-copy"><h3> INTEGRIS Pharmacy</h3></div>
+            </div>
+            <p class="feature3-copy">You can manage and refill any of your INTEGRIS Pharmacy prescriptions online.</p>
+            <a href="http://www.integrispharmacy.com/" class="btn btn-primary feature-link" target="_blank">Visit</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2 feature-box" id="ioyh">
+            <div><img src="/images/IOYH.jpg" class="img-responsive" style="width: 100%;" alt="I On Your Health" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/IOYH-Icon.png" class="img-responsive feature-icon-img" alt="IOnYourHealth" /></div>
+                <div class="feature2-copy"><h3> I On Your Health</h3></div>
+            </div>
+            <p class="feature3-copy">Stay healthy and on top of current health trends with weekly wellness emails, blog posts, “Ask the Doctor” sessions and more.</p>
+            <a href="http://www.ionyourhealth.com" class="btn btn-primary feature-link" target="_blank">Visit</a>
+        </div>
+        <div class="col-sm-9 col-sm-offset-2 col-xs-20 col-xs-offset-2 feature-box" id="videonetwork">
+            <div><img src="/images/Video.jpg" class="img-responsive" style="width: 100%;" alt="INTEGRIS Video Network" /></div>
+            <div class="feature-together">
+                <div class="feature2-icon"><img src="/images/Video-Network.png" class="img-responsive feature-icon-img" alt="Video Network" /></div>
+                <div class="feature2-copy"><h3> INTEGRIS Video Network</h3></div>
+            </div>
+            <p class="feature3-copy">Explore a library of more than 1,000 doctor and patient stories.</p>
+            <a href="http://www.integrishealth.tv" class="btn btn-primary feature-link" target="_blank">Visit</a>
+        </div>
+    </div>
+</div>
+
+<div class="content-block n-p-b">
+    <div class="row">
+        <div class="col-sm-20 col-sm-offset-2 col-xs-20 col-xs-offset-2 text-center">
+            <a href="@Url.Action("GetStarted","Home")" class="btn btn-default">Get Started Now</a>
+        </div>
+    </div>
+</div>
+
+<!-- dr finder -->
+@Html.Partial("~/Views/Shared/_DrFinder.cshtml")
+
+<!-- footer copy -->
+@Html.Partial("~/Views/Shared/_FooterCopy.cshtml")

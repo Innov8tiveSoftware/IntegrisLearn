@@ -1,0 +1,43 @@
+﻿@model IEnumerable<IntegrisMe.Models.Timeline>
+
+@{
+    ViewBag.SelectedMenu = "timeline";
+    ViewBag.title = "Timeline";
+}
+
+<!-- marquee -->
+@*@Html.Partial("~/Views/Shared/_Marquee.cshtml", new ViewDataDictionary { { "headline", "Pay bills online" }, { "copy", "Set up automatic withdrawals, pay by credit card, check or set up payment arrangements." }, { "btnLabel", "Watch How" }, { "btnUrl", "#" } })*@
+
+<!--copy -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">See What's in Store</h1>
+            <p class="text-center">
+                INTEGRIS &amp; Me is more than a revolutionary set of online tools, it’s a monumental transition into an era of personalized, you-focused health care. As our lives become more and more digitally driven, we’ve found a way to extend the powerful personal bond between doctor and patient way beyond the exam room.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- timeline -->
+<div class="content-block">
+    @foreach (var item in Model)
+    {
+        if (Model.First() != item)
+        {
+            <div class="row"><div class="col-sm-20 col-sm-offset-2 col-xs-22 col-xs-offset-1"><div class="timeline-seperator"></div></div></div>
+        }
+        <div class="row">
+            <div class="col-sm-6 col-sm-offset-2 col-xs-22 col-xs-offset-1">
+                <h1 class="timeline-date green">@Html.DisplayFor(modelItem => item.TimelineDate)</h1>
+            </div>
+            <div class="col-sm-12 col-sm-offset-1 col-xs-22 col-xs-offset-1">
+                <p>@Html.Raw(item.TimelineCopy)</p>
+            </div>
+        </div>
+    }
+</div>
+
+<!-- footer copy -->
+@Html.Partial("~/Views/Shared/_FooterCopy.cshtml")

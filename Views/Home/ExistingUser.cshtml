@@ -1,0 +1,75 @@
+﻿@{
+    ViewBag.SelectedMenu = "existingUser";
+    ViewBag.title = "Existing Users";
+}
+
+<!-- marquee -->
+@*@Html.Partial("~/Views/Shared/_Marquee.cshtml", new ViewDataDictionary { { "headline", "Manage appointments" }, { "copy", "View a calendar of available appointment times and compare it with your own schedule." }, { "btnLabel", "Watch How" }, { "btnUrl", "#" } })*@
+
+<!--copy -->
+@*<div class="content-block">
+        <div class="row">
+            <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+                <h1 class="green text-center">It only gets better from here</h1>
+                <p class="text-center"></p>
+                    <p class="text-center">Starting December 1, your current MyINTEGRIS username and password will automatically transition to a new INTEGRIS & Me account that revolves around your unique health care needs. It’s easy, just click here to get started.</p>
+                    <p class="text-center">Starting December 1, your current MyINTEGRIS username, password and all of your visit summaries will automatically transition to a new INTEGRIS &amp; Me account that revolves around your unique health care needs. All you need is an <a href="#" target="_self">activation code</a> to get started.</p>
+            </div>
+        </div>
+    </div>*@
+
+<!-- transition images -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1 m-b-10">
+            <h1 class="green text-center">For MyINTEGRIS Users</h1>            
+        </div>
+        <div class="col-sm-6 col-sm-offset-2 col-xs-22 col-xs-offset-1 text-center">
+            <div><img src="/images/Indi_feats_noLOGO_768px_v2.png" class="transition-img" alt="Phase 1" /></div>
+            <div class="transition-copy">You spoke, we listened. The new system is smoother, faster, more intuitive and puts even more control in your hands.</div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-1 col-xs-22 col-xs-offset-1 text-center">
+            <div><img src="/images/Power-On-Icon-265x280.png" class="transition-img" alt="Phase 2" /></div>
+            <div class="transition-copy">
+                INTEGRIS & Me is live and available to you now.
+            </div>
+        </div>
+        <div class="col-sm-6 col-sm-offset-1 col-xs-22 col-xs-offset-1 text-center">
+            <div><img src="/images/Indi_feats_noLOGO_768px_v3.png" class="transition-img" alt="Phase 3" /></div>
+            <div class="transition-copy">                
+                We’ll continue to roll out more tools and make things even better. 
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- copy -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">INTEGRIS &amp; Me</h1>
+            <p class="text-center">It’s a new way to think about your health care, and the way you manage it. More personalized. More control in your hands. And more tools available to you online. By signing up for an INTEGRIS & Me account, you’ll have access to all of this, with more coming soon:</p>
+        </div>
+    </div>
+</div>
+
+<!-- features -->
+@Html.Partial("~/Views/Shared/_Features.cshtml")
+
+<!-- copy -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">But that’s just the start.</h1>
+            <p class="text-center">
+                Soon, you’ll be able to view lab results, renew prescriptions, track your health trends and manage care like never before. Use the tool below to get details and sign up for updates.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- dr finder -->
+@Html.Partial("~/Views/Shared/_DrFinder.cshtml")
+
+<!-- footer copy -->
+@Html.Partial("~/Views/Shared/_FooterCopy.cshtml")

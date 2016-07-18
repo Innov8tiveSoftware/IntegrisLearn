@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.SelectedMenu = "newUser";
+    ViewBag.title = "New Users";
+}
+
+
+<!-- marquee -->
+@*@Html.Partial("~/Views/Shared/_Marquee.cshtml", new ViewDataDictionary { { "headline", "Find a doctor right for you" }, { "copy", "INTEGRIS & Me will connect you with a specialist who will take all of your needs and desires into consideration to find the best doctor for you." }, { "btnLabel", "Watch How" }, { "btnUrl", "#" } })*@
+
+<!--copy -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">What is a "Patient Portal"?</h1>
+            <p class="text-center">
+                It’s an online destination where you can manage your health care. It’s secure, easy to use and available whenever and wherever it suits you.
+            </p>
+        </div>
+    </div>
+</div>
+
+<!--checkboxes -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-4 col-sm-offset-2 col-xs-22 col-xs-offset-1 text-center">
+            <div class="checkmark"><img src="images/secure.png" class="checkmark-img" alt="Secure" /></div>
+            <div class="checkmark-copy"><h3>Secure</h3></div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-1 col-xs-22 col-xs-offset-1 text-center">
+            <div class="checkmark"><img src="images/anytime.png" class="checkmark-img" alt="Anytime" /></div>
+            <div class="checkmark-copy"><h3>Anytime</h3></div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-1 col-xs-22 col-xs-offset-1 text-center">
+            <div class="checkmark"><img src="images/Compass.png" class="checkmark-img" alt="Anywhere" /></div>
+            <div class="checkmark-copy"><h3>Anywhere</h3></div>
+        </div>
+        <div class="col-sm-4 col-sm-offset-1 col-xs-22 col-xs-offset-1 text-center">
+            <div class="checkmark"><img src="images/intuitive.png" class="checkmark-img" alt="Intuitive" /></div>
+            <div class="checkmark-copy"><h3>Easy</h3></div>
+        </div>
+    </div>
+</div>
+
+<!-- copy -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-16 col-xs-22 col-sm-offset-4 col-xs-offset-1">
+            <h1 class="green text-center">INTEGRIS &amp; Me</h1>
+            <p class="text-center">
+                It’s a new way to think about health care, and the way you manage it. More personalized. More control in your hands. And more tools available to you online. By signing up for an INTEGRIS &amp; Me account and entering the activation code your provider gives you, you’ll have access to all of this, with more coming soon:
+            </p>
+        </div>
+    </div>
+</div>
+
+<!-- features -->
+@Html.Partial("~/Views/Shared/_Features.cshtml")
+
+<!-- dr finder -->
+@Html.Partial("~/Views/Shared/_DrFinder.cshtml")
+
+<!-- footer copy -->
+@Html.Partial("~/Views/Shared/_FooterCopy.cshtml")		

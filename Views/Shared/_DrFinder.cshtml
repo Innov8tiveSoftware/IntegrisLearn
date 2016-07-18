@@ -1,0 +1,244 @@
+﻿@{
+    string formUrl = "";
+    if (ViewBag.SelectedMenu == "existingUser")
+    {
+        formUrl = "https://integrisok.com/formbuilder/NoMasterForms.aspx?sid=1&formid=23140";
+    }
+    else if (ViewBag.SelectedMenu == "newUser")
+    {
+        formUrl = "https://integrisok.com/formbuilder/NoMasterForms.aspx?sid=1&formid=43589";
+    }
+    else
+    {
+        formUrl = "https://integrisok.com/formbuilder/NoMasterForms.aspx?sid=1&formid=42173";
+    }
+}
+
+<!-- dr finder -->
+<div class="content-block">
+    <div class="row">
+        <div class="col-sm-20 col-sm-offset-2">
+            <div class="content-block-gray">
+                <div class="row">
+                    <div class="col-sm-14 col-sm-offset-5 col-xs-22 col-xs-offset-1 text-center">
+                        <h1 class="green">How does this affect me?</h1>
+                        <p>Search for and select your doctor to find out when the full suite of tools will become available.</p>
+                        <form id="dr-finder-form">
+                            <div id="input-doctor" class="inner-addon right-inner-addon">
+                                <i class="glyphicon glyphicon-search dr-search-submit-icon"></i>
+                                <label for="searchbox" class="sr-only">Search for your doctor</label>
+                                <input id="searchbox" type="search" class="form-control dr-selector typeahead" placeholder="Search for your doctor" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="dr-details-container">
+                    <div class="row">
+                        <div class="col-sm-20 col-sm-offset-2 col-xs-22 col-xs-offset-1">
+                            <h2 class="dr-name-org" id="FullName"> Doctor's name @*&nbsp; | &nbsp; <span id="IntegrisFacility"></span>*@</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-20 col-sm-offset-2 col-xs-22 col-xs-offset-1">
+                            <h3 class="facility-outpatient-header">Outpatient</h3>
+                            <p class="facility-outpatient-copy">
+                            <p><i>Includes visits without hospitalization or admission to hospital: regular doctor visits, specialist visits, tests, etc.</i></p>
+                            <div class="outpreepic">
+                                <p>You have access to appointment management, secure messaging with your care team, medical information management and online billpay access as well as INTEGRIS Virtual Visit, the INTEGRIS Video Network, INTEGRIS Pharmacy and I On Your Health.</p>
+                                <p>The full suite of INTEGRIS &amp; Me features will be available <strong id="OutpatientDate"></strong>. These features will include health trends and tracking as well as access to more details of your medical record, like immunizations, allergies, medications, test results and more.</p>
+                            </div>
+                            <div class="outpostepic" style="display: none">
+                                <p>Good news! Your provider supports the full suite of INTEGRIS & Me tools now, including health trends and tracking, detailed medical information, appointment management, secure messaging with your care team and online billpay access as well as INTEGRIS Virtual Visit, the INTEGRIS Video Network, INTEGRIS Pharmacy and I On Your Health. <a href="@Url.Action("Features", "Home")">Learn more about these features</a> or <a href="https://www.integrisandme.com">go to the portal now.</a></p>
+                            </div>
+                            @*<p>However, you will have access to all the features described above <strong>this December</strong>.</p>*@
+                            </p>
+                        </div>
+                        <div class="col-sm-20 col-sm-offset-2 col-xs-22 col-xs-offset-1">
+                            <h3 class="facility-inpatient-header">Inpatient</h3>
+                            <p class="facility-inpatient-copy">
+                            <p><i>Includes anyone admitted to hospital facilities.</i></p>
+                            <div class="inpreepic">
+                                <p>You have access to appointment management, secure messaging with your care team, medical information management and online billpay access as well as INTEGRIS Virtual Visit, the INTEGRIS Video Network, INTEGRIS Pharmacy and I On Your Health.</p>
+                                <p>The full suite of INTEGRIS &amp; Me features will be available <strong id="InpatientDate"></strong>. These features will include health trends and tracking as well as access to more details of your medical record, like immunizations, allergies, medications, test results and more.</p>
+                            </div>
+                            <div class="inpostepic" style="display: none">
+                                <p>Good news! Your provider supports the full suite of INTEGRIS & Me tools now, including health trends and tracking, detailed medical information, appointment management, secure messaging with your care team and online billpay access as well as INTEGRIS Virtual Visit, the INTEGRIS Video Network, INTEGRIS Pharmacy and I On Your Health. <a href="@Url.Action("Features", "Home")">Learn more about these features</a> or <a href="https://www.integrisandme.com">go to the portal now.</a></p>
+                            </div>
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- signup iframe -->
+                    <div class="row" id="emailform">
+                        <div class="col-sm-20 col-sm-offset-2 col-xs-22 col-xs-offset-1">
+                            <div class="form-copy">Notify me with updates and news about INTEGRIS &amp; Me.</div>
+                            <iframe allowtransparency='allowtransparency' frameborder='0' width='100%' marginwidth='0' marginheight='0' src='@formUrl' id='iframe'></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // TYPEAHEAD
+    var substringMatcher = function (strs) {
+        return function findMatches(q, cb) {
+            var matches, substringRegex;
+
+            // an array that will be populated with substring matches
+            matches = [];
+
+            // regex used to determine if a string contains the substring `q`
+            substrRegex = new RegExp(q, 'i');
+
+            // iterate through the pool of strings and for any string that
+            // contains the substring `q`, add it to the `matches` array
+            $.each(strs, function (i, str) {
+                if (substrRegex.test(str)) {
+                    matches.push(str);
+                }
+            });
+
+            cb(matches);
+        };
+    };
+
+    var drJson = [];
+    $(function () {
+        var drDataUrl = "/drData2.json?t=2015111300";
+        $.getJSON(drDataUrl, {})
+            .done(function (data) {
+                drJson = data;
+
+                // map doctor name to string array to use in typeahead text input
+                var doctorArray = [];
+                var map = {};
+                $.each(data, function (i, doctor) {
+                    map[doctor.FullName] = doctor;
+                    doctorArray.push(doctor.FullName);
+                });
+
+                $('#input-doctor .typeahead').typeahead({
+                    hint: false,
+                    highlight: true,
+                    minLength: 2
+                },
+                {
+                    name: 'doctorArray',
+                    source: substringMatcher(doctorArray)
+                });
+
+                $('.typeahead').bind('typeahead:select', function (ev, suggestion) {
+                    showDrDetails(suggestion);
+                });
+
+            });
+    });
+
+    // set selected dr details and show
+    function showDrDetails(selectedDr) {
+        var FirstName = "";
+        var MiddleName = "";
+        var LastName = "";
+        var FullName = "";
+        //var MedicalDegree = "";
+        //var ProviderOrganization = "";
+        //var StreetAddress = "";
+        //var AddressLine2 = "";
+        //var City = "";
+        //var State = "";
+        //var Zip = "";
+        //var PhoneNumber = "";
+        //var FaxNumber = "";
+        //var IHPSpecialty = "";
+        //var ProviderAgreementEffectiveDate = "";
+        //var AffiliationLocation = "";
+        var OutpatientDate = "";
+        var InpatientDate = "";
+        var IntegrisFacility = "";
+
+        $.each(drJson, function (key, value) {
+            if (value.FullName === selectedDr) {
+                FirstName = value.FirstName;
+                MiddleName = value.MiddleName;
+                LastName = value.LastName;
+                FullName = value.FullName;
+                //MedicalDegree = value.MedicalDegree;
+                //ProviderOrganization = value.ProviderOrganization;
+                //StreetAddress = value.StreetAddress;
+                //AddressLine2 = value.AddressLine2;
+                //City = value.City;
+                //State = value.State;
+                //Zip = value.Zip;
+                //PhoneNumber = value.PhoneNumber;
+                //FaxNumber = value.FaxNumber;
+                //IHPSpecialty = value.IHPSpecialty;
+                //ProviderAgreementEffectiveDate = value.ProviderAgreementEffectiveDate;
+                //AffiliationLocation = value.AffiliationLocation;
+                OutpatientDate = value.OutpatientDate;
+                InpatientDate = value.InpatientDate;
+                //IntegrisFacility = value.IntegrisFacility;
+                return false;
+            }
+        });
+
+        var match = $.grep(drJson, function (n, i) {
+            return n.FullName === selectedDr;
+        });
+
+        if (match) {
+
+            $('#FirstName').html(FirstName);
+            $('#MiddleName').html(MiddleName);
+            $('#LastName').html(LastName);
+            $('#FullName').html(FullName);
+            //$('#MedicalDegree').html(MedicalDegree);
+            //$('#ProviderOrganization').html(ProviderOrganization);
+            //$('#StreetAddress').html(StreetAddress);
+            //$('#AddressLine2').html(AddressLine2);
+            //$('#City').html(City);
+            //$('#State').html(State);
+            //$('#Zip').html(Zip);
+            //$('#PhoneNumber').html("<a href='tel:" + PhoneNumber + "'>" + PhoneNumber + "</a>");
+            //$('#FaxNumber').html(FaxNumber);
+            //$('#IHPSpecialty').html(IHPSpecialty);
+            //$('#ProviderAgreementEffectiveDate').html(ProviderAgreementEffectiveDate);
+            //$('#AffiliationLocation').html(AffiliationLocation);
+
+            $('#OutpatientDate').html(OutpatientDate);
+            $('#InpatientDate').html(InpatientDate);
+            $('#IntegrisFacility').html(IntegrisFacility);
+
+            //verify epic dates
+            var outPatientDate = new Date(Date.parse(OutpatientDate));            
+            if (outPatientDate <= new Date()) {
+                $(".outpostepic").show();
+                $(".outpreepic").hide();
+            } else {
+                $(".outpostepic").hide();
+                $(".outpreepic").show();
+            }
+
+            var inpatientDate = new Date(Date.parse(InpatientDate));
+            if (inpatientDate <= new Date()) {
+                $(".inpostepic").show();
+                $(".inpreepic").hide();
+            } else {
+                $(".inpostepic").hide();
+                $(".inpreepic").show();
+            }
+
+            $('#dr-details-container').show(500);
+        }
+
+    }
+
+    //email form
+    $("#emailform iframe form").on("submit", function () {
+        return false;
+    });
+</script>
