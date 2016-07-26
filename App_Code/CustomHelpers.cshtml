@@ -13,17 +13,10 @@
             </div>
             <div class="collapse navbar-collapse" id="nav-menu">
                 <ul class="nav navbar-nav">
-                    <li class="@(selecteditem == "home" ? "active":"")"><a href="/" title="Overview">Overview</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle @(selecteditem == "newUser" || selecteditem == "existingUser" ? "active" : "")" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INTEGRIS &amp; Me  <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="@(selecteditem == "newUser" ? "active" : "")"><a href="/NewUser" title="New User">New User</a></li>
-                            <li class="@(selecteditem == "existingUser" ? "active" : "")"><a href="/ExistingUser" title="Existing myINTEGRIS User">MyINTEGRIS User</a></li>
-                        </ul>
-                    </li>
-                    <li class="@(selecteditem == "features" ? "active" : "")"><a href="/Features" title="Features">Features</a></li>
-                    <li class="@(selecteditem == "getStarted" ? "active" : "")"><a href="/GetStarted" title="Get Started">Get Started</a></li>
-                    @*<li class="visible-xs" ><a href="https://www.integrisandme.com/Account/QuickPay" title="Quick Pay" target="_blank">Quick Pay</a></li>*@
+                    <li class="@(selecteditem == "home" ? "active":"")"><a href="/" title="Overview">Overview</a>
+                    </li><li class="@(selecteditem == "features" ? "active" : "")"><a href="/Features" title="Features">Features</a>
+                    </li><li class="@(selecteditem == "getStarted" ? "active" : "")"><a href="/GetStarted" title="Get Started">Get Started</a>
+                    </li><li class="visible-xs" ><a href="https://www.integrisandme.com/Account/QuickPay" title="Quick Pay" target="_blank">Quick Pay</a></li>
                 </ul>
             </div>
         </div>
@@ -33,3 +26,11 @@
   
     @*<li><a href="ContactUs" title="Contact Us" @if (selecteditem == "contactUs" ) { <text>class="active"</text> }>Contact Us</a></li>*@
 }
+
+@*<li class="dropdown">
+        <a href="#" class="dropdown-toggle @(selecteditem == "newUser" || selecteditem == "existingUser" ? "active" : "")" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">INTEGRIS &amp; Me  <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li class="@(selecteditem == "newUser" ? "active" : "")"><a href="/NewUser" title="New User">New User</a></li>
+            <li class="@(selecteditem == "existingUser" ? "active" : "")"><a href="/ExistingUser" title="Existing myINTEGRIS User">MyINTEGRIS User</a></li>
+        </ul>
+    </li>*@

@@ -1,0 +1,9 @@
+07/26/16
+Various copy changes
+Removed "INTEGRIS & Me" from navigation
+Removed "Are you a MyINTEGRIS user?" image from marquee on Overview page
+Removed "Let us show you around" module from Overview page
+Removed "How does this affect me?" module from all pages
+Replaced "intv_151127_inmesteps_15_in_251" video with "on_16-in-099_inandme_featurevideo_opt_b_rv16_mix3" video on "Features" and "Get Started" pages
+
+
